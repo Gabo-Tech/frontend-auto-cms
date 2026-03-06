@@ -104,6 +104,35 @@ Then open your dashboard route (default: `/dashboard`).
 - `npx frontend-auto-cms setup` - regenerate config, pages, and route map.
 - `npx frontend-auto-cms apply` - apply `cms-export.patch.json` locally.
 - `npx frontend-auto-cms doctor` - quick installation check.
+- `npm run publish:npm` - publish `frontend-auto-cms` to npmjs.org.
+- `npm run publish:github` - publish `@gabo-tech/frontend-auto-cms` to GitHub Packages.
+- `npm run publish:dual` - publish to npmjs.org and GitHub Packages in sequence.
+
+## Dual publish
+
+Use dual publish if you want:
+- public npm install from npmjs.org (`frontend-auto-cms`)
+- mirrored package on GitHub Packages (`@gabo-tech/frontend-auto-cms`)
+
+### One-time auth setup
+
+```bash
+# npmjs.org login
+npm login
+
+# GitHub Packages login (classic PAT required)
+npm login --scope=@gabo-tech --auth-type=legacy --registry=https://npm.pkg.github.com
+```
+
+### Publish both registries
+
+```bash
+npm version patch
+npm run build
+npm run publish:dual
+```
+
+GitHub Packages npm registry reference: [Working with the npm registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
 
 ## Security note
 

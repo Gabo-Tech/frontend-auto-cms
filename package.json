@@ -47,6 +47,9 @@
     "build:cli": "tsc -p tsconfig.cli.json && chmod +x dist/cli/index.js dist/cli/postinstall.js",
     "dev": "vite build --watch",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.cli.json --noEmit",
+    "publish:npm": "npm publish --access public",
+    "publish:github": "node ./scripts/publish-github-packages.mjs",
+    "publish:dual": "npm run publish:npm && npm run publish:github",
     "prepare": "npm run build",
     "postinstall": "node ./dist/cli/postinstall.js"
   },
