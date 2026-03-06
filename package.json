@@ -1,0 +1,66 @@
+{
+  "name": "frontend-auto-cms",
+  "version": "1.0.17",
+  "description": "Turn any frontend into an editable mini-CMS with one import.",
+  "type": "module",
+  "license": "MIT",
+  "author": "frontend-auto-cms",
+  "homepage": "https://github.com/Gabo-Tech/frontend-auto-cms",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gabo-Tech/frontend-auto-cms.git"
+  },
+  "keywords": [
+    "cms",
+    "frontend",
+    "content-management",
+    "i18n",
+    "dashboard",
+    "vite",
+    "zero-config"
+  ],
+  "main": "./dist/runtime/index.js",
+  "module": "./dist/runtime/index.js",
+  "types": "./dist/runtime/runtime/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/runtime/runtime/index.d.ts",
+      "import": "./dist/runtime/index.js"
+    },
+    "./dashboard": {
+      "types": "./dist/runtime/runtime/dashboard.d.ts",
+      "import": "./dist/runtime/dashboard.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": "dist/cli/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build:runtime && npm run build:types && npm run build:cli",
+    "build:runtime": "vite build",
+    "build:types": "tsc -p tsconfig.runtime.build.json",
+    "build:cli": "tsc -p tsconfig.cli.json && chmod +x dist/cli/index.js dist/cli/postinstall.js",
+    "dev": "vite build --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.cli.json --noEmit",
+    "prepare": "npm run build",
+    "postinstall": "node ./dist/cli/postinstall.js"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^14.0.1",
+    "inquirer": "^12.9.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}

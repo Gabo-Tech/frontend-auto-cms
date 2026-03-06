@@ -1,0 +1,11 @@
+export const CMS_CONFIG_FILE = ".cms-config.json";
+export const CMS_HOSTING_FILE = ".cms-hosting.json";
+export const CMS_CONTENT_FILE = "cms-content.json";
+export const CMS_PATCH_FILE = "cms-export.patch.json";
+export const CMS_ASSET_DIR = "public/cms-assets";
+export const CMS_RUNTIME_AUTH_FILE = "public/cms-runtime-auth.json";
+export const CMS_RUNTIME_HOSTING_FILE = "public/cms-hosting.json";
+export const CMS_RUNTIME_SETTINGS_FILE = "public/cms-settings.json";
+export const CMS_RUNTIME_LOCALES_FILE = "public/cms-locales.json";
+export const CMS_RUNTIME_ROUTE_MAP_FILE = "public/cms-route-map.json";
+export const SUPPORTED_EXTENSIONS = [".html", ".jsx", ".tsx", ".vue", ".astro", ".svelte"] as const;
