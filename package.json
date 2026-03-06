@@ -1,6 +1,6 @@
 {
   "name": "frontend-auto-cms",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Turn any frontend into an editable mini-CMS with one import.",
   "type": "module",
   "license": "MIT",
